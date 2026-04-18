@@ -1,0 +1,21 @@
+# 使用者實際設定（範本是 config.example.yaml）
+config.yaml
+
+# 產出的電子書（README 預設 output_dir: ./books）
+books/
+output/
+
+# 系統 / 編輯器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python（若之後加工具）
+__pycache__/
+*.pyc
+.venv/
+venv/
