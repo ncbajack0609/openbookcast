@@ -56,7 +56,7 @@ user-invocable: true
 
 ## Configuration（使用者設定）
 
-於工作目錄下放 `config.yaml`（可複製 `config.example.yaml`），支援下列設定：
+於工作目錄下放 `config.yaml`，支援下列設定：
 
 ```yaml
 # 輸出目錄（相對或絕對路徑）
@@ -141,13 +141,12 @@ narrative_style: narrator
 1. **嘗試讀取工作目錄下的 `config.yaml`**。
    - 若存在：解析其內容，作為本次執行的設定來源。
 2. **若 `config.yaml` 不存在**：
-   - 嘗試讀取 `config.example.yaml` 作為預設值來源。
-   - 若仍不存在，採用 SKILL.md 內文所述之內建預設值。
+   - 採用 SKILL.md 內文所述之內建預設值。
 3. **將最終採用的設定輸出給使用者確認**，格式如下：
 
    ```
    📋 本次執行採用的設定：
-   - 設定來源：config.yaml | config.example.yaml | 內建預設
+   - 設定來源：config.yaml | 內建預設
    - output_dir: <value>
    - language: <value>
    - localization_profile: <value>
