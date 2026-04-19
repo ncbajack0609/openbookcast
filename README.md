@@ -2,7 +2,7 @@
 
 > AI-powered knowledge compilation assistant — turn a topic, a reading list, or source materials into a structured Markdown e-book.
 
-**Book Compiler** 是一個 LLM 無關（LLM-agnostic）的 skill / prompt，幫你把研究結果整理成類似電子書的 Markdown 集合。適用於個人知識管理、主題綜述、讀書筆記、研究整理等場景。
+**Book Compiler** 是一個各家 LLM 通用（LLM-agnostic）的 skill / prompt，幫你把研究結果整理成類似電子書的 Markdown 集合。適用於個人知識管理、主題綜述、讀書筆記、研究整理等場景。
 
 ## ⚠️ 重要聲明
 
@@ -12,18 +12,31 @@
 
 ## 特色
 
-- **LLM 無關**：Claude Code、Claude API、ChatGPT、Gemini、Cursor、Cline 等皆可使用
+- **LLM 無關**：Claude Code、Claude API、ChatGPT、Gemini、Cursor、OpenClaw 等皆可使用
 - **結構化流程**：研究 → 大綱 → 撰寫 → 審稿 → 組裝，五階段可中斷可恢復
 - **來源透明**：每章明確標示 📖 書籍摘要 / 🌐 網路資料 / 🤖 AI 生成
 - **在地化支援**：透過 `profiles/<locale>.yaml` 定義語系用語，預設提供 `zh-TW`
 - **著作權友善**：預設旁白敘事避免仿作、強制重新命名書名、合理使用引用上限、公版書模式
 - **多模式**：`--outline` 僅大綱 / `--chapter` 單章 / `--self-review` 草稿自審 / `--public-domain-only` 公版書安全模式
 
+## 跟 Google NotebookLM 有什麼不一樣？
+
+一句話：NotebookLM 是「雲端知識助理」，這支 skill 是「本地出書流水線」。定位不衝突，但解的問題不一樣。
+
+**1. 輸出物不同**  
+NotebookLM 給你的是「在它平台上的問答 / 摘要 / 音頻」；這個 skill 給你的是「本地 Markdown 一整本書」——有目錄、章節、前言，可進 Git、可丟 Obsidian。你擁有檔案。
+
+**2. 不綁 Google，可換引擎**
+NotebookLM 只能跑在 Google 的 Gemini 上。這支 skill 是純 prompt,在 Claude Code / Codex / ChatGPT / Gemini / Cursor 都能跑,哪天換模型不用重學。
+
+**3. 結構是「書的章節」，是「筆記本」**  
+NotebookLM 的心智模型是「我問、它答」；這裡是「給我題目,產一本可讀的書」。
+
 ## 想先看產出效果？
 
-在 clone 之前，可以先看 [`examples/`](./examples/) 目錄下的精選樣本：
+在 clone 之前，可以先看 `[examples/](./examples/)` 目錄下的精選樣本：
 
-- [**《從自卑到自由：阿德勒心理學給現代人的勇氣地圖》**](./examples/from-inferiority-to-freedom/) — 基於 Alfred Adler 三本公版著作綜合編撰，示範 `--from-books` + `--public-domain-only` 模式。
+- **[《從自卑到自由：阿德勒心理學給現代人的勇氣地圖》](./examples/from-inferiority-to-freedom/)** — 基於 Alfred Adler 三本公版著作綜合編撰，示範 `--from-books` + `--public-domain-only` 模式。
 
 最快的試讀路徑：直接點 [第 1 章](./examples/from-inferiority-to-freedom/01-chapter-01.md) 或 [第 4 章](./examples/from-inferiority-to-freedom/04-chapter-04.md)。
 
@@ -32,24 +45,29 @@
 ## 快速開始
 
 ### Claude Code
+
 1. 把 `SKILL.md` 放到專案的 `.claude/skills/book-compiler/SKILL.md`
 2. 執行：`/book-compiler 你的主題`
 
 ### ChatGPT / GPTs
+
 1. 建立新 GPT，把 `SKILL.md` 內容貼到 Instructions
 2. 啟用 Web Browsing
 3. 直接輸入主題即可
 
 ### Gemini（AI Studio / Gemini CLI）
+
 1. 把 `SKILL.md` 當 system instruction
 2. 啟用 Google Search grounding
 3. 輸入主題
 
 ### Cursor / Cline / Continue
+
 1. 將 `SKILL.md` 放入 rules 或 custom mode
 2. 呼叫時觸發
 
 ### Claude API（含 Agent SDK）
+
 1. 當 system prompt
 2. 自行實作 `web_search`、`web_fetch`、檔案 I/O、shell 等 tool
 
