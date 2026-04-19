@@ -6,6 +6,17 @@ output/
 # 本地筆記（不推送）
 notes/
 
+# 本地 AI 助手配置（不推送）
+CLAUDE.md
+.claude/
+
+# 本地環境變數 / 金鑰（不推送）
+.env
+.env.*
+
+# 日誌
+*.log
+
 # 系統 / 編輯器
 .DS_Store
 Thumbs.db

@@ -6,6 +6,19 @@ argument-hint: "<topic> [--from-books <books>|--from-search <query>|--outline|--
 # NOTE: `argument-hint` 與 `user-invocable` 為 Claude Code 專屬欄位。
 # 其他環境（ChatGPT / Gemini / Cursor / Cline / 自建 agent）可忽略或刪除。
 user-invocable: true
+
+# NOTE: `metadata.openclaw` 為 OpenClaw AgentSkill 專屬 metadata，
+# 用於 ClawHub 顯示、平台過濾與啟動前的依賴檢查；
+# 其他環境（Claude Code / Codex / ChatGPT / Gemini / Cursor / Cline）會忽略此欄位。
+metadata:
+  openclaw:
+    emoji: "📚"
+    homepage: "https://github.com/ncbajack0609/openbookcast"
+    os: [darwin, linux]
+    requires:
+      env: [ANTHROPIC_API_KEY]
+      config: [config.yaml]
+    primaryEnv: ANTHROPIC_API_KEY
 ---
 
 # Book Compiler — AI Knowledge-Compilation Assistant (Open-Source Edition)
