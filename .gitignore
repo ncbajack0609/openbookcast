@@ -3,7 +3,11 @@ config.yaml
 
 # 產出的電子書（README 預設 output_dir: ./books）
 books/
+Books/
 output/
+
+# 本地筆記（不推送）
+notes/
 
 # 系統 / 編輯器
 .DS_Store

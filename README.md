@@ -19,6 +19,16 @@
 - **著作權友善**：預設旁白敘事避免仿作、強制重新命名書名、合理使用引用上限、公版書模式
 - **多模式**：`--outline` 僅大綱 / `--chapter` 單章 / `--self-review` 草稿自審 / `--public-domain-only` 公版書安全模式
 
+## 想先看產出效果？
+
+在 clone 之前，可以先看 [`examples/`](./examples/) 目錄下的精選樣本：
+
+- [**《從自卑到自由：阿德勒心理學給現代人的勇氣地圖》**](./examples/from-inferiority-to-freedom/) — 基於 Alfred Adler 三本公版著作綜合編撰，示範 `--from-books` + `--public-domain-only` 模式。
+
+最快的試讀路徑：直接點 [第 1 章](./examples/from-inferiority-to-freedom/01-chapter-01.md) 或 [第 4 章](./examples/from-inferiority-to-freedom/04-chapter-04.md)。
+
+---
+
 ## 快速開始
 
 ### Claude Code

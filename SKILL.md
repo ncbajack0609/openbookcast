@@ -70,13 +70,13 @@ localization_profile: zh-TW
 
 # 章節字數範圍
 chapter_length:
-  min: 1500
+  min: 2000
   max: 3000
 
 # 合理使用引用限制（可選）
 quote_limits:
   enabled: true
-  max_quote_chars: 150         # 單次 blockquote 上限
+  max_quote_chars: 200         # 單次 blockquote 上限
   max_quote_ratio: 0.10        # 全書引用佔比上限
 
 # 是否啟用公版書守門（建議新手打開）
@@ -133,6 +133,35 @@ narrative_style: narrator
 ---
 
 ## 編撰工作流程
+
+### Phase 0：載入設定（必要，第一步）
+
+在進入任何後續 Phase 之前，**必須**先執行下列步驟：
+
+1. **嘗試讀取工作目錄下的 `config.yaml`**。
+   - 若存在：解析其內容，作為本次執行的設定來源。
+2. **若 `config.yaml` 不存在**：
+   - 嘗試讀取 `config.example.yaml` 作為預設值來源。
+   - 若仍不存在，採用 SKILL.md 內文所述之內建預設值。
+3. **將最終採用的設定輸出給使用者確認**，格式如下：
+
+   ```
+   📋 本次執行採用的設定：
+   - 設定來源：config.yaml | config.example.yaml | 內建預設
+   - output_dir: <value>
+   - language: <value>
+   - localization_profile: <value>
+   - chapter_length: <min>-<max>
+   - narrative_style: <value>
+   - public_domain_only: <value>
+   - quote_limits.enabled: <value>
+   ```
+
+4. 後續所有 Phase 中的 `{{output_dir}}`、`{{chapter_length.*}}`、`language`、`narrative_style` 等變數，**一律**以 Phase 0 載入的值為準，不得寫死或猜測。
+
+**若環境無 file I/O 能力**（如純 ChatGPT prompt），則直接採用內建預設值，並於執行前明示使用者。
+
+---
 
 ### Phase 1：研究與規劃
 
