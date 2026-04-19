@@ -55,7 +55,7 @@
 
 ## 設定
 
-複製 `config.example.yaml` 為 `config.yaml`，依需求調整：
+編輯 `config.yaml`，依需求調整：
 
 ```yaml
 output_dir: ./books
@@ -99,7 +99,7 @@ book-compiler/
 ├── README.md                # 本檔
 ├── LICENSE                  # MIT
 ├── DISCLAIMER.md            # 著作權 / 合理使用聲明
-├── config.example.yaml      # 設定範本
+├── config.yaml              # 設定檔
 └── profiles/
     └── zh-TW.yaml           # 台灣在地化 profile
 ```
