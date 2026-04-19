@@ -1,0 +1,69 @@
+# Book Compiler — Configuration Example
+# 複製為 config.yaml 後依需求修改。
+
+# ── 輸出 ─────────────────────────────────────────────────────────
+
+# 輸出目錄。可用相對路徑（相對於工作目錄）或絕對路徑。
+# 亦可透過環境變數 BOOK_COMPILER_OUTPUT_DIR 覆寫。
+output_dir: ./books
+
+# ── 語言與在地化 ─────────────────────────────────────────────────
+
+# 撰寫語言（ISO 639-1 + 地區碼）
+# 可選：zh-TW, zh-CN, zh-HK, en, ja, ko, ...
+language: zh-TW
+
+# 在地化 profile，對應 profiles/<locale>.yaml
+# 留空或 null 表示不做在地化轉換。
+# 目前內建：zh-TW
+# 歡迎透過 PR 貢獻其他語系 profile。
+localization_profile: zh-TW
+
+# ── 章節長度 ─────────────────────────────────────────────────────
+
+chapter_length:
+  min: 2000
+  max: 3000
+
+# ── 著作權 / 合理使用 ────────────────────────────────────────────
+
+# 引用限制（Phase 4.3 審稿時依此檢查）。
+# 可關閉或放寬，但建議保留預設以降低法律風險。
+quote_limits:
+  enabled: true
+  max_quote_chars: 200    # 單次 blockquote 字數上限
+  max_quote_ratio: 0.10   # 全書 blockquote 佔比上限（0.10 = 10%）
+
+# 公版書模式：僅處理可確認為公版之書籍。
+# 建議：對法律風險敏感的使用者、新手、或做公開示範時啟用。
+public_domain_only: false
+
+# ── 敘事視角 ─────────────────────────────────────────────────────
+
+# narrator      — 旁白式摘要 / 評論敘事（預設，著作權較安全）
+# first-person  — 第一人稱模擬敘事（風險自負）
+narrative_style: narrator
+
+# ── 來源蒐集 ─────────────────────────────────────────────────────
+
+# 搜尋主題型書籍時要取回幾本
+source_fetch:
+  topic_book_count: 7       # 3~10 之間較合理
+  webfetch_timeout_ms: 15000
+
+# ── Token / 成本管理 ─────────────────────────────────────────────
+
+# 若目標 LLM 的 context window 較小，降低此值。
+# 預設值適用於 Claude 4.x / GPT-4.1 / Gemini 2.x 等長 context 模型。
+token_budget:
+  per_chapter_max: 8000
+  total_book_max: 120000
+
+# ── 輸出格式 ─────────────────────────────────────────────────────
+
+# single  — 單一 Markdown 檔案
+# chapter — 分章資料夾（預設）
+output_format: chapter
+
+# 是否在產出目錄下同時生成 README.md（含連結目錄）
+generate_readme: true

@@ -1,6 +1,3 @@
-# 使用者實際設定（範本是 config.example.yaml）
-config.yaml
-
 # 產出的電子書（README 預設 output_dir: ./books）
 books/
 Books/
